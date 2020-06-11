@@ -28,3 +28,12 @@ jobs:
     - run: |
         docker build . --file dockerfile --tag markushtesti.azurecr.io/petclinic:${{ github.sha }}
         docker push markushtesti.azurecr.io/petclinic:${{ github.sha }}
+
+    - uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: 'markushpetclinic'
+        images: 'markushtesti.azurecr.io/petclinic:${{ github.sha }}'
+    
+    - name: Azure logout
+      run: |
+        az logout
