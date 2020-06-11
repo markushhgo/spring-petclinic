@@ -18,5 +18,13 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Build the Docker image
-      run: docker build . --file dockerfile --tag petclinic:$(date +%s)
+   # - name: Build the Docker image
+   #   run: docker build . --file dockerfile --tag petclinic:$(date +%s)
+    - uses: azure/docker-login@v1
+      with:
+        login-server: markushtesti.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - run: |
+        docker build .t markushtesti.azurecr.io/petclinic:${{ github.sha }}
+        docker push markushtesti.azurecr.io/petclinic:${{ github.sha }}
