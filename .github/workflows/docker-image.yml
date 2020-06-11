@@ -26,5 +26,5 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-        docker build .t markushtesti.azurecr.io/petclinic:${{ github.sha }}
+        docker build . markushtesti.azurecr.io/petclinic:${{ github.sha }}
         docker push markushtesti.azurecr.io/petclinic:${{ github.sha }}
