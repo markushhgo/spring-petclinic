@@ -21,6 +21,12 @@ resource "azurerm_container_group" "petcliniccontainer" {
   dns_name_label      = "aci-labell"
   os_type             = "Linux"
 
+  image_registry_credential {
+    server   = "${var.registry_server}"
+    username = "${var.registry_username}"
+    password = "${var.registry_password}"
+  }
+
   container {
     name   = "petclinic"
     image  = "markushtesti.azurecr.io/petclinic:latest"
