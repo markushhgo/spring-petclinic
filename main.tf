@@ -11,7 +11,19 @@ terraform {
 provider "azurerm" {
   version = "~> 2.0"
   features {}
-} 
+}
+
+variable "registry_server" {
+  default = ""
+}
+
+variable "registry_username" {
+  default = ""
+}
+
+variable "registry_password" {
+  default = ""
+}
 
 resource "azurerm_container_group" "petcliniccontainer" {
   name                = "petclinic-continst"
