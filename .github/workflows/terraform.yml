@@ -42,9 +42,9 @@ jobs:
     - name: Terraform Init
       run: terraform init
       env:
-          registry_server: markushtesti.azurecr.io
-          registry_username: ${{ secrets.REGISTRY_USERNAME }}
-          registry_password: ${{ secrets.REGISTRY_PASSWORD }}
+          TF_VAR_registry_server: markushtesti.azurecr.io
+          TF_VAR_registry_username: ${{ secrets.REGISTRY_USERNAME }}
+          TF_VAR_registry_password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - name: Terraform Validate
       run: terraform validate
