@@ -34,9 +34,9 @@ resource "azurerm_container_group" "petcliniccontainer" {
   os_type             = "Linux"
 
   image_registry_credential {
-    server   = "${var.registry_server}"
-    username = "${var.registry_username}"
-    password = "${var.registry_password}"
+    server   = var.registry_server
+    username = var.registry_username
+    password = var.registry_password
   }
 
   container {
