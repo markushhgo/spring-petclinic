@@ -25,6 +25,10 @@ variable "registry_password" {
   default = ""
 }
 
+variable "image_id" {
+  default = ""
+}
+
 resource "azurerm_container_group" "petcliniccontainer" {
   name                = "petclinic-continst"
   location            = "West Europe"
@@ -41,7 +45,7 @@ resource "azurerm_container_group" "petcliniccontainer" {
 
   container {
     name   = "petclinic"
-    image  = "markushtesti.azurecr.io/petclinic:latest"
+    image  = var.image_id
     cpu    = "0.5"
     memory = "1.5"
 
