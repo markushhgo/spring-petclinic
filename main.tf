@@ -34,7 +34,7 @@ resource "azurerm_container_group" "petcliniccontainer" {
   location            = "West Europe"
   resource_group_name = "markushpilvistorage"
   ip_address_type     = "public"
-  dns_name_label      = "aci-labell"
+  dns_name_label      = "aci-demo-5432"
   os_type             = "Linux"
 
   image_registry_credential {
