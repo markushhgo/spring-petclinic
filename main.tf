@@ -50,7 +50,7 @@ resource "azurerm_container_group" "petcliniccontainer" {
     memory = "1.5"
 
     ports {
-      port     = 443
+      port     = 8080
       protocol = "TCP"
     }
   }
