@@ -28,7 +28,7 @@ variable "registry_password" {
 resource "azurerm_container_group" "petcliniccontainer" {
   name                = "petclinic-continst"
   location            = "West Europe"
-  resource_group_name = "markushResourceGroup"
+  resource_group_name = "markushpilvistorage"
   ip_address_type     = "public"
   dns_name_label      = "aci-labell"
   os_type             = "Linux"
