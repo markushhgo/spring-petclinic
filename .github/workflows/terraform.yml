@@ -62,3 +62,7 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: terraform apply -auto-approve
+      env:
+          TF_VAR_registry_server: markushtesti.azurecr.io
+          TF_VAR_registry_username: ${{ secrets.REGISTRY_USERNAME }}
+          TF_VAR_registry_password: ${{ secrets.REGISTRY_PASSWORD }}
